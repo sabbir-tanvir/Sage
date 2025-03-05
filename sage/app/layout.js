@@ -1,5 +1,6 @@
 import "./globals.css";
 import Providor from "./providor";
+import  ConvexClintProvider  from "../app/ConvexClientProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -10,9 +11,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
+
+
+        <ConvexClintProvider>
         <Providor>
           {children}
         </Providor>
+        </ConvexClintProvider>
       </body>
     </html>
   );

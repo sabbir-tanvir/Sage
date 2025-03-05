@@ -1,0 +1,10 @@
+{
+  "functions": "./convex/",
+  "bundler": {
+    "external": [
+      "convex/schema",
+      "convex/server",
+      "convex/values"
+    ]
+  }
+}
