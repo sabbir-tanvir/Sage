@@ -5,12 +5,19 @@ import { ArrowRight, Link } from "lucide-react";
 import { MessgaesContext } from "@/Contex/MessagesContex";
 import React from "react";
 import Colors from "@/data/Colors";
+import { UserDetailsContext } from "@/Contex/UserDetailsContext";
 
 function Hero() {
     const [userInput, setUserInput] = useState('');
     const {messages, setMessages} = useContext(MessgaesContext);
-
+    const {userDetails, setUserDetails} = useContext(UserDetailsContext);
+    const [openDilog, setOpenDilog] = useState(false);
+    
     const onGenerate = (input) => {
+        if(!userDetails?.name){
+            setOpenDilog(true);
+            return;
+        }
         setMessages({
             role: 'user',
             content: input
