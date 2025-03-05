@@ -21,7 +21,7 @@ import { useMutation } from 'convex/react';
 function SignInDialog({openDilog , closeDialog}) {
 const {userDetails, setUserDetails} = useContext(UserDetailsContext);
   
-const CreateUser=useMutation(api.users.CreateUser);
+const CreateUser=useMutation(api.user.CreateUser);
 
 const googleLogin = useGoogleLogin({
   onSuccess: async (tokenResponse) => {
