@@ -6,25 +6,23 @@ import { MessgaesContext } from "@/Contex/MessagesContex";
 import React from "react";
 import Colors from "@/data/Colors";
 import { UserDetailsContext } from "@/Contex/UserDetailsContext";
-import SignInDialog from "./SignInDialog";
-
+import { DialogContext } from "@/app/providor";
 
 function Hero() {
     const [userInput, setUserInput] = useState('');
     const {messages, setMessages} = useContext(MessgaesContext);
     const {userDetails, setUserDetails} = useContext(UserDetailsContext);
-    const [openDilog, setOpenDilog] = useState(false);
+    const {openDialog, setOpenDialog} = useContext(DialogContext);
     
     const onGenerate = (input) => {
         if(!userDetails?.name){
-            setOpenDilog(true);
+            setOpenDialog(true);
             return;
         }
         setMessages({
             role: 'user',
             content: input
         })
-
     }
 
     return (
@@ -34,7 +32,6 @@ function Hero() {
             <div className="p-5 border rounded-xl max-w-2xl w-full mt-3"
                 style={{backgroundColor:Colors.BACKGROUND}}
             >
-
                 <div className="flex gap-2">
                     <textarea placeholder={Lookup.INPUT_PLACEHOLDER}
                         onChange={(event) => setUserInput(event.target.value)}
@@ -53,15 +50,10 @@ function Hero() {
                 {Lookup.SUGGSTIONS.map((suggestion, index) => (
                     <h2 key={index}
                     onClick={() => onGenerate(suggestion)}
-                    className="p-1 px-2 border rounded-full text-gray-400 hover:text-white cursor-pointer  "
-                    
+                    className="p-1 px-2 border rounded-full text-gray-400 hover:text-white cursor-pointer"
                     > {suggestion}</h2>
-
                 ))}
             </div>
-            <SignInDialog openDilog={openDilog}
-            closeDialog={(v) => setOpenDilog(v)} />
-
         </div>
     )
 }

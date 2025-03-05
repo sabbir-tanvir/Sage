@@ -1,8 +1,5 @@
-
 import "./globals.css";
 import Providor from "./providor";
-
-
 
 export const metadata = {
   title: "Create Next App",
@@ -12,12 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-      >
+      <body suppressHydrationWarning>
         <Providor>
-        {children}
+          {children}
         </Providor>
-
       </body>
     </html>
   );
