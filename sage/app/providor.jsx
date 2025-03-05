@@ -7,6 +7,8 @@ import { MessgaesContext } from '@/Contex/MessagesContex';
 import { UserDetailsContext } from '@/Contex/UserDetailsContext';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import SignInDialog from '@/components/Custorm/SignInDialog';
+import { useConvex } from 'convex/react';
+import { api } from '../convex/_generated/api';
 
 // Create a context for the dialog state
 export const DialogContext = React.createContext();
@@ -16,6 +18,24 @@ function Providor({ children }) {
     const [messages, setMessages] = useState();
     const [userDetails, setUserDetails] = useState();
     const [openDialog, setOpenDialog] = useState(false);
+    const convex=useConvex();
+
+
+    useEffect(() => {
+        // Check if the user is already authenticated
+        IsAuthenticated();
+    }, []);
+
+    const IsAuthenticated=async()=>{
+        if(typeof window !== 'undefined')
+            {
+                const user = JSON.parse(localStorage.getItem('user'));
+                const result = await convex.query(api.user.GetUser,{email:user.email});
+                setUserDetails(result);
+                console.log(result);
+        }
+    }
+
 
     useEffect(() => {
         setMounted(true);
