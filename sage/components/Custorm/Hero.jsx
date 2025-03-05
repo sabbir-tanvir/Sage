@@ -6,6 +6,8 @@ import { MessgaesContext } from "@/Contex/MessagesContex";
 import React from "react";
 import Colors from "@/data/Colors";
 import { UserDetailsContext } from "@/Contex/UserDetailsContext";
+import SignInDialog from "./SignInDialog";
+
 
 function Hero() {
     const [userInput, setUserInput] = useState('');
@@ -57,6 +59,8 @@ function Hero() {
 
                 ))}
             </div>
+            <SignInDialog openDilog={openDilog}
+            closeDialog={(v) => setOpenDilog(v)} />
 
         </div>
     )
