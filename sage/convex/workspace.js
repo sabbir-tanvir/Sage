@@ -1,6 +1,5 @@
-import { mutation } from "./_generated/server";
-import {v} from "convex/values";
-
+import { mutation, query } from "./_generated/server";
+import { v } from "convex/values";
 
 export const CreateWorkspace = mutation({
     args:{
@@ -14,4 +13,15 @@ export const CreateWorkspace = mutation({
         });
         return WorkSpaceId;
     }
+})
+
+// Function to get workspace data including messages
+export const GetWorkspace = query({
+  args: {
+    WorkSpaceId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    // Fetch the workspace data based on the provided ID
+    const workspace = await ctx.db
+      .query("workspaces")
 })
