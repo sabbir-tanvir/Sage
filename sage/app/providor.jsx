@@ -3,8 +3,8 @@
 import React, { use, useState, useEffect } from 'react'
 import { ThemeProvider as NextThemesProvidor } from 'next-themes';
 import Header from '../components/Custorm/Header';
-import { MessgaesContext } from '@/Contex/MessagesContex';
-import { UserDetailsContext } from '@/Contex/UserDetailsContext';
+import { MessgaesContext } from '../Contex/MessagesContex';
+import { UserDetailsContext } from '../Contex/UserDetailsContext';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import SignInDialog from '../components/Custorm/SignInDialog';
 import { useConvex } from 'convex/react';

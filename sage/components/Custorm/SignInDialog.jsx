@@ -3,18 +3,18 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
 import { v4 as uuid4 } from 'uuid';
-import { api } from "@/convex/_generated/api";
+import { api } from "../../convex/_generated/api";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import Lookup from '@/data/Lookup';
+} from "../../components/ui/dialog"
+import Lookup from '../../data/Lookup';
 import { Button } from '../ui/button';
 import { useGoogleLogin } from '@react-oauth/google';
-import { UserDetailsContext } from '@/Contex/UserDetailsContext';
+import { UserDetailsContext } from '../../Contex/UserDetailsContext';
 import { useMutation } from 'convex/react';
 
 
