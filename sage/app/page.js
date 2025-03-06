@@ -1,5 +1,5 @@
 
-import Hero from "@/components/Custorm/Hero";
+import Hero from "../components/Custorm/Hero";
 
 export default function Main () {
   return (

@@ -1,12 +1,12 @@
 "use client";
-import Lookup from "@/data/Lookup";
+import Lookup from "../../data/Lookup";
 import { useContext, useState } from "react";
 import { ArrowRight, Link } from "lucide-react";
-import { MessgaesContext } from "@/Contex/MessagesContex";
+import { MessgaesContext } from "../../Contex/MessagesContex";
 import React from "react";
-import Colors from "@/data/Colors";
-import { UserDetailsContext } from "@/Contex/UserDetailsContext";
-import { DialogContext } from "@/app/providor";
+import Colors from "../../data/Colors";
+import { UserDetailsContext } from "../../Contex/UserDetailsContext";
+import { DialogContext } from "../../app/providor";
 import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
 import { api } from '../../convex/_generated/api';

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React, { useContext } from "react";
 import { Button } from "../ui/button";
-import Colors from "@/data/Colors";
-import { UserDetailsContext } from "@/Contex/UserDetailsContext";
+import Colors from "../../data/Colors";
+import { UserDetailsContext } from "../../Contex/UserDetailsContext";
 
 function Header() {
     const {userDetails, setUserDetails} = useContext(UserDetailsContext);
